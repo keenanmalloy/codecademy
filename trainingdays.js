@@ -22,6 +22,8 @@ const getTrainingDays = (event) => {
     days = 200;
   }
 
+  console.log(days);
+
   return days;
 };
 
