@@ -137,11 +137,96 @@ const howOld = (age, year) => {
   const theCurrentYear = 2022;
   const yearDifference = year - theCurrentYear;
   const newAge = age + yearDifference;
-  switch (true) {
-    case theCurrentYear > year:
-      return `You were ${newAge} in the year ${year}`;
-    case 
+  if (newAge > age) {
+    return `You will be ${newAge} in the year ${year}`;
+  } else if (newAge < 0) {
+    return `The year ${year} was ${-newAge} years before you were born`;
+  } else {
+    return `You were ${newAge} in the year ${year}`;
+  }
+};
+
+const whatRelation = (percentSharedDNA) => {
+  if (percentSharedDNA === 100) {
+    return "You are likely identical twins.";
+  }
+  if (percentSharedDNA > 34 && percentSharedDNA <= 99) {
+    return "You are likely parent and child or full siblings.";
+  }
+  if (percentSharedDNA >= 14 && percentSharedDNA <= 34) {
+    return "You are likely grandparent and grandchild, aunt/uncle and niece/nephew, or half siblings.";
+  }
+  if (percentSharedDNA >= 6 && percentSharedDNA <= 13) {
+    return "You are likely 1st cousins.";
+  }
+  if (percentSharedDNA >= 3 && percentSharedDNA <= 5) {
+    return "You are likely 2nd cousins.";
+  }
+  if (percentSharedDNA >= 1 && percentSharedDNA <= 2) {
+    return "You are likely 3rd cousins";
+  }
+  return "You are likely not related.";
+};
+
+console.log(whatRelation(34));
+// Should print 'You are likely grandparent and grandchild, aunt/uncle and niece/nephew, or half siblings.'
+
+console.log(whatRelation(3));
+// Should print 'You are likely 2nd cousins.'
+
+const tipCalculator = (quality, total) => {
+  if (quality === "bad") {
+    return total * 0.05;
+  } else if (quality === "ok") {
+    return total * 0.15;
+  } else if (quality === "good") {
+    return total * 0.2;
+  } else if (quality === "excellent") {
+    return total * 0.3;
+  } else {
+    return total * 0.18;
+  }
+};
+
+const toEmoticon = (string) => {
+  switch (string) {
+    case "shrug":
+      return '|_{"}_|';
+    case "smiley face":
+      return ":)";
+    case "frowny face":
+      return ":(";
+    case "winky face":
+      return ";)";
+    case "heart":
+      return "<3";
     default:
-      break;
+      return "|_(* ~ *)_|";
+  }
+};
+
+const colorMessage = (favoriteColor, shirtColor) => {
+  if (favoriteColor === shirtColor) {
+    return "The shirt is your favorite color!";
+  } else {
+    return "That is a nice color.";
+  }
+};
+
+const isEven = (num) => {
+  if (num % 2) {
+    return false;
+  } else if (num % 3) {
+    return true;
+  }
+};
+
+const numberDigits = (x) => {
+  if (x >= 0 && x <= 9) {
+    return `One digit: ${x}`;
+  } else if (x >= 10 && x <= 99) {
+    return `Two digits: ${x}`;
+  } else {
+    return `The number is: ${x}`;
   }
 };
