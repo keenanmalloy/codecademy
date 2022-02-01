@@ -41,3 +41,5 @@ const init = () => {
 
   advanceRound();
 };
+
+init();
